@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @EnableJpaAuditing
 @Configuration
-public class JpaComfig {
+public class JpaConfig {
     @Bean
     public AuditorAware<String> auditorAware(){
         return () -> Optional.of("관리자"); //스프링 시큐리티로 인증기능을 붙이게될때 수정할 것임
