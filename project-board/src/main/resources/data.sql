@@ -1,3 +1,5 @@
+insert into user_account(user_id,user_pw,nickname,email,memo,created_at,created_by,modified_at,modified_by) values ('apple','1234','사과','apple@apple.com','안녕 난 김사과야',now(),'admin',now(),'admin');
+
 insert into article (title, content, hashtag, created_at, created_by, modified_at, modified_by) values ('Cookley', 'ed.gov', 'NO', '2022-06-03', 'Pronghorn', '2022-11-30', 'Antilocapra americana');
 insert into article (title, content, hashtag, created_at, created_by, modified_at, modified_by) values ('Otcom', 'aboutads.info', 'IR', '2022-10-21', 'Stick insect', '2022-09-08', 'Leprocaulinus vipera');
 insert into article (title, content, hashtag, created_at, created_by, modified_at, modified_by) values ('Span', 'usda.gov', 'BR', '2022-01-08', 'Galapagos tortoise', '2022-05-13', 'Geochelone elephantopus');

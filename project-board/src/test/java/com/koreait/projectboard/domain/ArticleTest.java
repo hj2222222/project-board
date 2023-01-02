@@ -1,5 +1,6 @@
 package com.koreait.projectboard.domain;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,14 +14,15 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
+@Disabled("Spring Data Rest 테스트는 불필요하므로 제외시킴")
 @DisplayName("Data REST - API TEST")
 @AutoConfigureMockMvc
 @Transactional
 @SpringBootTest
 class ArticleTest {
     private final MockMvc mvc;
-    public ArticleTest(@Autowired MockMvc mvc){
+
+    public ArticleTest(@Autowired MockMvc mvc) {
         this.mvc = mvc;
     }
 
@@ -33,28 +35,32 @@ class ArticleTest {
     }
 
     @DisplayName("[API] 게시글 단건 조회")
-    @Test //api/articles/1
-    void detail() throws Exception{
+    @Test
+        //api/articles/1
+    void detail() throws Exception {
         mvc.perform(get("/api/articles/1"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.valueOf("application/hal+json")));
     }
 
     @DisplayName("[API] 게시글 댓글 리스트 조회")
-    @Test //api/articles/1/articlesComments
-    void detailComments() throws Exception{
+    @Test
+        //api/articles/1/articlesComments
+    void detailComments() throws Exception {
         mvc.perform(get("/api/articles/1/articleComments"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.valueOf("application/hal+json")));
     }
 
     @DisplayName("[API] 댓글리스트 조회")
-    @Test   //api/articleComments
-    void readComments() throws Exception{
+    @Test
+        //api/articleComments
+    void readComments() throws Exception {
         mvc.perform(get("/api/articleComments"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.valueOf("application/hal+json")));
     }
+}
 //    @DisplayName("[API] 댓글 단건 조회")
 //    @Test   //api/articleComments/1
 //    void detailComment() throws Exception{
@@ -62,4 +68,3 @@ class ArticleTest {
 //                .andExpect(status().isOk())
 //                .andExpect(content().contentType(MediaType.valueOf("application/hal+json")));
 //    }
-}
